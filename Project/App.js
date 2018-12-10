@@ -9,7 +9,11 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 
+import Active from './src/components/active'
+import Location from './src/components/location'
+import Bottom_nav from './src/components/bottom_nav'
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,8 +22,12 @@ const instructions = Platform.select({
         'Shake or press menu button for dev menu',
 });
 
+
+
+
+
 type Props = {};
-export default class App extends Component<Props> {
+class Home extends Component<Props> {
     constructor(props){
         super(props)
         this.state = {
@@ -32,42 +40,8 @@ export default class App extends Component<Props> {
                 {/*<Text style={styles.welcome}>Welcome to React Native!</Text>*/}
                 {/*<Text style={styles.instructions}>To get started, edit App.js</Text>*/}
                 {/*<Text style={styles.instructions}>{instructions}</Text>*/}
-                <TabNavigator>
-                    <TabNavigator.Item
-                        selected={this.state.selectedTab === 'active'}
-                        selectedTitleStyle={{color:'black'}}
-                        title="热门活动"
-                        renderIcon={() => <Image style={styles.icon_img} source={require('./src/images/footer/event_w.png')} />}
-                        renderSelectedIcon={() => <Image style={styles.icon_img} source={require('./src/images/footer/event_b.png')} />}
-                        // badgeText="1"
-                        onPress={() => this.setState({ selectedTab: 'active' })}>
-                        {/*{homeView}*/}
-                        <View style={styles.page}></View>
-                    </TabNavigator.Item>
-                    <TabNavigator.Item
-                        selected={this.state.selectedTab === 'location'}
-                        selectedTitleStyle={{color:'black'}}
-                        title="精选地点"
-                        renderIcon={() => <Image style={styles.icon_img}  source={require('./src/images/footer/discovery_w.png')} />}
-                        renderSelectedIcon={() => <Image style={styles.icon_img}  source={require('./src/images/footer/discovery_icon.png')} />}
-                        // renderBadge={() => <CustomBadgeView />}
-                        onPress={() => this.setState({ selectedTab: 'location' })}>
-                        {/*{profileView}*/}
-                        <View style={styles.page1}></View>
-                    </TabNavigator.Item>
-                    <TabNavigator.Item
-                        selected={this.state.selectedTab === 'my_info'}
-                        selectedTitleStyle={{color:'black'}}
-                        title="我的信息"
-                        renderIcon={() => <Image style={styles.icon_img}  source={require('./src/images/footer/me_w.png')} />}
-                        renderSelectedIcon={() => <Image style={styles.icon_img}  source={require('./src/images/footer/me_b.png')} />}
-                        // renderBadge={() => <CustomBadgeView />}
-                        onPress={() => this.setState({ selectedTab: 'my_info' })}>
-                        {/*{profileView}*/}
-                        <View style={styles.page1}></View>
-                    </TabNavigator.Item>
-                </TabNavigator>
-
+                <Text onPress={()=> this.props.navigation.navigate('active')}>Go to active  v</Text>
+                {/*<Bottom_nav/>*/}
             </View>
         );
     }
@@ -103,3 +77,19 @@ const styles = StyleSheet.create({
         height:30
     }
 });
+
+const RootStack = createStackNavigator({
+    home:{
+        screen:Home
+    },
+    active:{
+        screen:Active
+    },
+    location:{
+        screen:Location
+    }
+},{
+    initialRouteName: "home"
+})
+const App = createAppContainer(RootStack);
+export default App
