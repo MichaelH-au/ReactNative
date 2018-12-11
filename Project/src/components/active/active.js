@@ -36,7 +36,7 @@ class Active extends Component {
             <View style={{justifyContent: 'center'}}>
                 <View style={styles.bannerText}>
                     <Text style={styles.bannerTitle}>{item.eventName}</Text>
-                    <Text style={{fontSize:12, color:'white', marginTop: 108}}>{item.eventTime}</Text>
+                    <Text style={{fontSize:12, color:'white', marginTop: 10}}>{item.eventTime}</Text>
                     <Text style={{fontSize:14, color:'white', marginTop: 5}}>{item.eventLocation}</Text>
                 </View>
                 <LinearGradient
@@ -65,7 +65,6 @@ class Active extends Component {
                     bannerData:newData,
                     loaded:true
                 })
-
             })
 
     }
