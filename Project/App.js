@@ -11,8 +11,8 @@ import {Platform, StyleSheet, Text, View, Image} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
-import Active from './src/components/active'
-import Location from './src/components/location'
+import Active from './src/components/active/active'
+import Location from './src/components/Location/location'
 import Bottom_nav from './src/components/bottom_nav'
 
 const instructions = Platform.select({

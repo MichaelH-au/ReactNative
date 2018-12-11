@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image} from 'react-native';
 import { createStackNavigator, createAppContainer, createBottomTabNavigator, TabBarBottom, getActiveChildNavigationOptions } from 'react-navigation'
-import Active from './components/active'
-import Location from './components/location'
+import Active from './components/active/active'
+import Location from './components/Location/location'
 import MyInfo from "./components/myInfo";
 import TabBarItem from "./widget/TabBarItem"
 

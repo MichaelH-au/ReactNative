@@ -4,7 +4,7 @@ import {Platform, StyleSheet, Text, View, ScrollView, Dimensions, Image} from 'r
 
 const slideWidth = Dimensions.get('window').width * 0.9;
 
-class EventList extends Component {
+class LocationList extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -50,25 +50,25 @@ class EventList extends Component {
         // const {goBack} = this.props.navigation;
         return (
             <View style={{alignItems:'center',justifyContent:'center', marginTop: 20}}>
-                {this.props.eventData.map((v, index)=>(
+                {this.props.locationData.map((v, index)=>(
                     <View style={styles.ItemBox} key={index}>
                         <Image style={styles.ItemImage} source={{uri:'http://www.sharegotech.com/shareGo/' + v.urlPath}}/>
                         <View style={styles.TextArea}>
                             <View style={{flex:.7, flexDirection: 'column',justifyContent: 'space-around',paddingLeft: 10}}>
-                                <Text style={styles.TextContent}>{v.eventName}</Text>
-                                <Text style={{fontSize: 12}}>{v.eventTime}</Text>
+                                <Text style={styles.TextContent}>{v.locationName}</Text>
+                                <Text style={{fontSize: 12}}>{v.locationIntro}</Text>
                             </View>
                             <View style={styles.separateLine}></View>
                             <View style={{flex:.3,flexDirection: 'column',justifyContent: 'center',alignItems: 'center'}}>
                                 <View style={styles.ItemRightBox}>
                                     <Image style={styles.likeIcon} source={require('../../images/Items/like-3.svg.png')}/>
-                                    <Text>{this.fa_number(v.fav_number, v.eventId)}</Text>
+                                    <Text>{this.fa_number(v.fav_number, v.locationRating)}</Text>
                                 </View>
-                                <View style={styles.ItemRightBox}>
-                                    <Text>{v.eventPrice}</Text>
-                                </View>
+                                {/*<View style={styles.ItemRightBox}>*/}
+                                    {/*<Text>{v.eventPrice}</Text>*/}
+                                {/*</View>*/}
                                 {/*<Image/>*/}
-                                <Image style={styles.rateIcon} source={this.rate(v.eventRating, v.fav_number)}/>
+                                <Image style={styles.rateIcon} source={this.rate(v.locationRating, v.fav_number)}/>
                             </View>
                         </View>
                     </View>
@@ -79,7 +79,7 @@ class EventList extends Component {
     }
 }
 
-export default EventList
+export default LocationList
 
 const styles = StyleSheet.create({
     ItemBox:{

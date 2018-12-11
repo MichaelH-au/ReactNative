@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Image, StyleSheet, View, Text} from "react-native";
 import TabNavigator from "react-native-tab-navigator";
-import Active from "./active";
+import Active from "./active/active";
 
 class Bottom_nav extends Component {
     constructor(props){
