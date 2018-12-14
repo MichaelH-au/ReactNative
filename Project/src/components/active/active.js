@@ -46,7 +46,7 @@ class Active extends Component {
                 <Category category={this.state.category}/>
                 <ScrollView>
                     <Banner bannerData={this.state.bannerData}/>
-                    <EventList eventData={this.state.eventData}/>
+                    <EventList navigation={this.props.navigation} thi eventData={this.state.eventData}/>
                 </ScrollView>
             </View>
         );

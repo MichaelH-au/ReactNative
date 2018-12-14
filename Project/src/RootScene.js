@@ -5,6 +5,7 @@ import Active from './components/active/active'
 import Location from './components/Location/location'
 import MyInfo from "./components/myInfo";
 import TabBarItem from "./widget/TabBarItem"
+import ActiveDetail from './components/activeDetail/activeDetail'
 
 const Nav = createBottomTabNavigator({
     active:{
@@ -103,7 +104,8 @@ const Navigator = createStackNavigator({
             headerStyle:{backgroundColor: 'lightblue'}
         },
     },
-    WebScene:{screen:MyInfo}
+    WebScene:{screen:MyInfo},
+    ActiveDetail:{screen:ActiveDetail}
 },{
     navigationOptions:{
         headerTintColor: 'red',

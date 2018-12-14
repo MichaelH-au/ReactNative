@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, ScrollView, Dimensions, Image} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity} from 'react-native';
 
 
 const slideWidth = Dimensions.get('window').width * 0.9;
@@ -51,7 +51,7 @@ class EventList extends Component {
         return (
             <View style={{alignItems:'center',justifyContent:'center', marginTop: 20}}>
                 {this.props.eventData.map((v, index)=>(
-                    <View style={styles.ItemBox} key={index}>
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('ActiveDetail',{eventId:v.eventId, fav_number:this.fa_number(v.fav_number, v.eventId)})} style={styles.ItemBox} key={index}>
                         <Image style={styles.ItemImage} source={{uri:'http://www.sharegotech.com/shareGo/' + v.urlPath}}/>
                         <View style={styles.TextArea}>
                             <View style={{flex:.7, flexDirection: 'column',justifyContent: 'space-around',paddingLeft: 10}}>
@@ -71,7 +71,7 @@ class EventList extends Component {
                                 <Image style={styles.rateIcon} source={this.rate(v.eventRating, v.fav_number)}/>
                             </View>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 ))}
 
             </View>
